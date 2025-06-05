@@ -41,3 +41,53 @@ A container is a runnable instance of an image. You can create, start, stop, mov
 By default, a container is relatively well isolated from other containers and its host machine. You can control how isolated a container's network, storage, or other underlying subsystems are from other containers or from the host machine.
 
 A container is defined by its image as well as any configuration options you provide to it when you create or start it. When a container is removed, any changes to its state that aren't stored in persistent storage disappear.
+
+Example`docker run` command
+The following command runs an ubuntu container, attaches interactively to your local command-line session, and runs `/bin/bash`.
+```bash
+ docker run -i -t ubuntu /bin/bash
+```
+When you run this command, the following happens (assuming you are using the default registry configuration):
+
+1. If you don't have the `ubuntu` image locally, Docker pulls it from your configured registry, as though you had run `docker pull ubuntu` manually.
+
+Docker creates a new container, as though you had run a `docker container create` command manually.
+
+Docker allocates a read-write filesystem to the container, as its final layer. This allows a running container to create or modify files and directories in its local filesystem.
+
+Docker creates a network interface to connect the container to the default network, since you didn't specify any networking options. This includes assigning an IP address to the container. By default, containers can connect to external networks using the host machine's network connection.
+
+Docker starts the container and executes `/bin/bash`. Because the container is running interactively and attached to your terminal (due to the `-i` and `-t` flags), you can provide input using your keyboard while Docker logs the output to your terminal.
+
+When you run `exit` to terminate the `/bin/bash` command, the container stops but isn't removed. You can start it again or remove it.
+
+### Container images
+If you’re new to container images, think of them as a standardized package that contains everything needed to run an application, including its files, configuration, and dependencies. These packages can then be distributed and shared with others.
+
+### Docker Hub
+To share your Docker images, you need a place to store them. This is where registries come in. While there are many registries, Docker Hub is the default and go-to registry for images. Docker Hub provides both a place for you to store your own images and to find images from others to either run or use as the bases for your own images.
+
+### DOCKER COMPOSE
+You can use multiple docker run commands to start multiple containers. But, you'll soon realize you'll need to manage networks, all of the flags needed to connect containers to those networks, and more. And when you're done, cleanup is a little more complicated.
+
+With `Docker Compose`, you can define all of your containers and their configurations in a single YAML file. If you include this file in your code repository, anyone that clones your repository can get up and running with a single command.
+
+It's important to understand that Compose is a declarative tool - you simply define it and go. You don't always need to recreate everything from scratch. If you make a change, run docker compose up again and Compose will reconcile the changes in your file and apply them intelligently.
+
+- **Dockerfile versus Compose file**
+
+A Dockerfile provides instructions to build a container image while a Compose file defines your running containers. Quite often, a Compose file references a Dockerfile to build an image to use for a particular service.
+
+Use the docker compose up command to start the application:
+```bash
+docker compose up -d --build
+```
+Use the docker compose down command to tear the application:
+```bash
+docker compose down
+```
+
+## The underlying technology
+Docker is written in the **Go programming** language  and takes advantage of several features of the `Linux` kernel to deliver its functionality. Docker uses a technology called `namespaces` to provide the isolated workspace called the container. When you run a container, Docker creates a set of namespaces for that container.
+
+These namespaces provide a layer of isolation. Each aspect of a container runs in a separate namespace and its access is limited to that namespace.
