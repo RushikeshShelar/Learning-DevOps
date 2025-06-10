@@ -5,9 +5,9 @@
 4. `$1 $2` - Positional arguments (Refers to the Values passed at 1st and 2nd place.
 5. Conditionals (IF ELSE)
     ```shell
-   if [{$1,,} = Rushi]; then
+   if [{$1,,} = "Rushi"]; then
       echo "You are Welcome"
-   elif [{$1,,} = help]; then
+   elif [{$1,,} = "help"]; then
       echo "Enter your user name"
    else
       echo "Idk you!"
