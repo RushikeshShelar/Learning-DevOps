@@ -94,7 +94,9 @@ def main(source, target):
     JSON_PATH = os.path.join(target_path, "metadata.json")
     make_json_metadate_file(JSON_PATH, new_game_dirs)
 
-    compile_game_code(dest_path)
+    #compile_game_code(dest_path)
+    print("Games Compiled")
+
 
 
 
