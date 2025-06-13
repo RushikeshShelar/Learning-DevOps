@@ -11,7 +11,7 @@ try:
     if repo.is_dirty(untracked_files=True):
         # Stash any uncommitted changes
         repo.git.stash('save', 'Auto Stash before pulling')
-        with open('/home/rushi/devops/git-sync.log', 'a') as log_file:
+        with open('/var/log/rushi/git-sync.log', 'a') as log_file:
             print("Uncommitted changes detected. Stashing changes before pulling.")
             log_file.write(f"[INFO]: {datetime.now().strftime('%Y-%m-%d-%H:%M:%S')} - Stashed the files temporary for pulling.\n")
         stashed = True
@@ -27,12 +27,12 @@ except Exception as e:
     print(log_message)
 
 finally:
-    with open('/home/rushi/devops/git-sync.log', 'a') as log_file:
+    with open('/var/log/rushi/git-sync.log', 'a') as log_file:
         log_file.write(log_message)
 
     if stashed:
         repo.git.stash('pop')
         # Log Message for popping the stash
-        with open('/home/rushi/devops/git-sync.log', 'a') as log_file:
+        with open('/var/log/rushi/git-sync.log', 'a') as log_file:
             print("Popped the stashed changes after pulling.")
             log_file.write(f"[INFO]: {datetime.now().strftime('%Y-%m-%d-%H:%M:%S')} - Popped the stashed files after pulling.\n")
