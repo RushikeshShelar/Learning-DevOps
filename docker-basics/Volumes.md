@@ -38,7 +38,7 @@ If you want to ensure that data generated or modified inside the container persi
 
 If you have specific files or directories on your host system that you want to directly share with your container, like configuration files or development code, then you would use a bind mount. It's like opening a direct portal between your host and container for sharing. Bind mounts are ideal for development environments where real-time file access and sharing between the host and container are crucial.
 
-
+![volume and mount](volume-vs-mount.png)
 
 ### Sharing files between a host and container
 Both `-v` (or `--volume`) and `--mount` flags used with the `docker run` command let you share files or directories between your local machine (host) and a Docker container. However, there are some key differences in their behavior and usage.
