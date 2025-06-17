@@ -1,0 +1,49 @@
+# String Variables
+name: Rushikesh Shelar 
+email: "rushikeshshelar.cs@gmail.com"
+job: 'SWE'
+
+# Multi-line String Variables
+address: |
+  123, Main Street,
+  City, State, 12345
+
+# Write a Single line in mutiline string (this will all be a single line)
+description: >
+  This is a single line in a multi-line string.
+  It will be treated as a single line.
+
+# Integer Variables
+number: 835
+# Float Variables
+marks: 99.99
+
+# Specify the Data Types of the Variables
+# Integer Types
+zero: !!int 0
+binaryNum: !!int 0b1010 # Binary Integer
+octalNum: !!int 0o12 # Octal Integer
+hexadecimalNum: !!int 0x1A # Hexadecimal Integer
+commaValue: !!int +1_000 # 1,000 # Comma-separated Integer
+exponentialNum: 6.02E23 # Exponential Notation (6.02 x 10^23) 
+
+# Float Types
+pi: !!float 3.14
+infinite: !!float .inf # Positive Infinity
+negative_infinite: !!float -.inf # Negative Infinity
+not_a_number: !!float .nan # Not a Number
+
+# Boolean Variables
+is_active: !!boolean n # Can be N, No, NO, false, False, FALSE
+same_as_previous: !!boolean true # Can be Y, Yes, YES, true, True, TRUE
+
+# Null Variables
+surname: !!null null # Can be null, Null, NULL, ~, or an empty string
+~: THis is a null key # This is a null key with a value
+
+# Date and Time Variables
+date: !!timestamp 2023-10-01 # Date in YYYY-MM-DD format
+time: !!timestamp 2023-10-01T12:00:00Z # Date and time in ISO 8601 format
+india_time: !!timestamp 2023-10-01T12:00:00 + 05:30 # Date and time with timezone offset
+no_time_zone: !!timestamp 2023-10-01T12:00:00 # Date and time without timezone
+# Regular Expression Variables

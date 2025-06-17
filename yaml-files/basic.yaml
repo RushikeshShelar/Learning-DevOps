@@ -1,0 +1,20 @@
+# This is a YAML file example
+"apple": "hello I am a Fruit"
+27: "this is my roll number"
+--- #This is a Separator line that can be used to separate sections(documents) in a YAML file
+# lists
+fruits:
+  - "apple"
+  - "banana"
+  - "orange"
+---
+fruits: [ orange apple banana] # Flow data Type (same as list)
+--- # Seprator line
+{ mango: "yellow Fruit", age: 50}
+# yaml is case sensitive
+vegetables:
+  - "carrot"
+  - "Carrot"
+---
+
+... # This specifies the end of the YAML file

@@ -1,0 +1,89 @@
+# Sequence
+student: !!seq
+  - marks
+  - name
+  - email
+
+# Like this also
+student: !!seq [marks, name, email]
+
+# Some of the Keys of the Sequence will be empty
+# Sparse Sequence
+sparse words:
+  - hey
+  - how
+  -
+  - Null
+  - you
+  - 
+
+# Nested Sequence
+- 
+  - apple
+  - banana
+  - orange
+-
+  - mango
+  - pineapple
+  - watermelon
+
+# Key-Value Pairs are Called Mappings
+# Mapping
+student_info: !!map
+  name: Rushikesh Shelar
+  email:
+
+# Nested Mapping
+name: !!map Kunal Kushwala
+role: !!map
+  name: "SWE"
+  email: ""
+# Same as
+name: !!map Kunal Kushwala
+Role: !!map { name: "SWE", email: "" }
+
+# KEys may have Duplicate Values
+# Pairs 
+profession: !!pairs
+  - job: "SWE"
+  - job: "SDE"
+# same as
+profession: !!pairs [ job: "SWE", job: "SDE" ]
+
+# SET (Unordered Collection of Unique Values)
+friends: !!set
+  ? Rushikesh
+  ? Anushka
+  ? Pravin
+  ? Shubham
+
+# Dictionary
+people: !omap
+  - Rushi: 
+      age: 25
+      city: Pune
+  - Anushka:
+      age: 24
+      city: Mumbai
+      height: 5.5
+
+# Reusing Properties
+likings: $likes
+  trip: !!seq
+    - Goa
+    - Manali
+  vehicles: !!seq
+    - Car
+    - Bike
+
+cilent1: 
+  name: Rushikesh
+  <<: *likes
+
+client2:
+  name: Anushka
+  <<: *likes
+  trip: !!seq #Overriding the trip
+    - Goa
+    - Manali
+    - Ladakh

@@ -1,0 +1,8 @@
+---
+school:
+- name: Gurukul High School
+  principal: Mr. Sharma
+  students:
+  - name: Rushikesh
+    rollNumber: 101
+    marks: 99

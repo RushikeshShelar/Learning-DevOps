@@ -1,0 +1,10 @@
+<? xml version="1.0" encoding="UTF-8" ?>
+<School name="Gurukul High School" principal="MR. Sharma">
+    <Students>
+        <Student>
+        <rollNo>101</rollNo>
+        <name>Rushikesh</name>
+        <marks>94</marks>
+        </Student>
+    </Students>
+</School>
