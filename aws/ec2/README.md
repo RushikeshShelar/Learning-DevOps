@@ -78,7 +78,7 @@ Understanding how traffic flows from the internet to your EC2 instance is crucia
 
 ### 📦 Flow: Internet to EC2 Instance
 
-[VPC Architecture](architecture.png)
+![VPC Architecture](architecture.png)
 
 1. **Internet Gateway (IGW)**  
 - Connects your VPC to the internet. Required for public access.
