@@ -1,2 +1,78 @@
+# BACKED UP FILES
+# Ignore all backup files
 python-basics/scripting/backup-logs/backups/**
+
+
+# 💡 ENV Files
+# Ignore all `.env` files (except .env.local)
+**/.env
+!**/.env.local
+
+# 🛡️ Secrets and credentials
 aws/*.pem
+*.pem
+*.key
+*.crt
+*.p12
+*.jks
+*.kdb
+*.asc
+*.gpg
+*.cert
+
+# 📦 Node.js dependencies
+node_modules/
+
+# 🐍 Python virtual environments
+venv/
+.env/         # sometimes venvs are in .env/
+__pycache__/
+*.py[cod]
+*.pyo
+
+# 🐳 Docker junk
+**/.dockerignore
+**/Dockerfile~
+.docker/
+
+# ⚙️ Terraform
+*.tfstate
+*.tfstate.*
+.crash
+.terraform/
+*.tfvars
+override.tf
+override.tf.json
+
+
+
+# 🗂️ OS and Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.idea/
+.vscode/
+*.iml
+
+# 📂 Build artifacts
+dist/
+build/
+out/
+*.egg-info/
+
+# 🧪 Testing/coverage
+coverage/
+*.cover
+*.py,cover
+.cache/
+nosetests.xml
+coverage.xml
+*.lcov
+
+# 🗃️ Misc
+.envrc
+.env.*.local     # for dotenv-cli setups
