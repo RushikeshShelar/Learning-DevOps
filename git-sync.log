@@ -1,0 +1,12 @@
+[SUCCESS]: 2025-06-14-01:06:20 - Pulled latest changes
+[INFO]: 2025-06-14-01:09:18 - Stashed the files temporary for pulling.
+[SUCCESS]: 2025-06-14-01:09:20 - Pulled latest changes
+[INFO]: 2025-06-14-01:09:20 - Popped the stashed files after pulling.
+[INFO]: 2025-06-14-01:12:41 - Stashed the files temporary for pulling.
+[SUCCESS]: 2025-06-14-01:12:44 - Pulled latest changes
+[INFO]: 2025-06-14-01:12:44 - Popped the stashed files after pulling.
+[INFO]: 2025-06-14-01:30:35 - Stashed the files temporary for pulling.
+[ERROR]: 2025-06-14-01:30:35 - Cmd('git') failed due to: exit code(128)
+  cmdline: git pull -v -- origin
+  stderr: 'error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.'
