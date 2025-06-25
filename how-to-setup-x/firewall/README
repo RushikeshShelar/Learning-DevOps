@@ -1,0 +1,115 @@
+# 🔥 Local Firewall Setup with UFW (Uncomplicated Firewall)
+
+This guide walks through setting up and managing a **local firewall** on Linux using `ufw` (Uncomplicated Firewall).  
+This is different from **AWS Security Groups** — here, we manage firewall rules **inside the OS**.
+
+---
+
+## 📌 What is UFW?
+
+UFW is a simple CLI frontend for `iptables` that makes managing a firewall on Linux easier.
+
+---
+
+## 📦 Installation (if not already installed)
+
+```bash
+sudo apt update
+sudo apt install ufw
+```
+
+---
+
+## 🚀 Enabling the Firewall
+
+```bash
+sudo ufw enable           # Enables & starts UFW immediately and on boot
+sudo ufw status verbose   # Check current status and rules
+```
+
+---
+
+## 🔍 Check Firewall Status
+
+```bash
+sudo ufw status           # Basic status
+sudo ufw status verbose   # Verbose details
+```
+
+---
+
+## ✅ Allow Traffic
+
+```bash
+sudo ufw allow 22/tcp        # Allow SSH
+sudo ufw allow 80/tcp        # Allow HTTP
+sudo ufw allow 443/tcp       # Allow HTTPS
+sudo ufw allow 3000          # Allow port 3000 (e.g., for local apps)
+```
+
+---
+
+## ❌ Deny/Block Traffic
+
+```bash
+sudo ufw deny 8080           # Block incoming to port 8080
+sudo ufw delete allow 3000   # Remove previously allowed rule
+```
+
+---
+
+## 🔁 Default Policies (Recommended)
+
+```bash
+sudo ufw default deny incoming   # Block all incoming by default
+sudo ufw default allow outgoing  # Allow all outgoing traffic
+```
+
+---
+
+## 🔁 Restart / Reload
+
+```bash
+sudo ufw reload             # Reloads rules (safe)
+sudo systemctl restart ufw # Restarts firewall service
+```
+
+---
+
+## 🧯 Disable UFW (If Needed)
+
+```bash
+sudo ufw disable
+```
+
+---
+
+## 🛡️ Best Practices
+
+- **Always allow SSH (22)** before enabling UFW on remote servers or EC2:
+  ```bash
+  sudo ufw allow ssh
+  ```
+
+- **Keep default deny incoming**, allow only necessary ports.
+
+- Use `sudo ufw logging on` to enable basic logging (located at `/var/log/ufw.log`).
+
+- Prefer `ufw enable` over `systemctl start ufw` for auto-start on reboot.
+
+- Use **port ranges** for grouped services if needed:
+  ```bash
+  sudo ufw allow 1000:2000/tcp
+  ```
+
+---
+
+## 🧪 Test Your Firewall (Optional)
+
+You can test blocked ports with:
+
+```bash
+curl http://<your-ip>:3000
+```
+
+If blocked, you'll see a timeout or connection refused.
