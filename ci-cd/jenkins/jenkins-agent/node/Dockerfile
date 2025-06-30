@@ -2,7 +2,12 @@ FROM jenkins/inbound-agent:alpine
 
 USER root
 
-# Install Node.js via Alpine package
-RUN apk add --no-cache nodejs npm
+RUN apk add --no-cache \
+    nodejs \
+    npm \
+    docker-cli \
+    openssh \
+    git \
+    curl
 
 USER jenkins

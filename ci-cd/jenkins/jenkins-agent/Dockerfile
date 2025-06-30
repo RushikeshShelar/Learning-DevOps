@@ -3,6 +3,9 @@ USER root
 RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
+    docker-cli \
+    docker-compose \
+    openssh \
     curl \
     git \
     && apt-get clean \
