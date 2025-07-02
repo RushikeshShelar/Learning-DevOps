@@ -13,7 +13,8 @@ try:
         repo.git.stash('save', 'Auto Stash before pulling')
         with open('/var/log/rushi/git-sync.log', 'a') as log_file:
             print("Uncommitted changes detected. Stashing changes before pulling.")
-            log_file.write(f"[INFO]: {datetime.now().strftime('%Y-%m-%d-%H:%M:%S')} - Stashed the files temporary for pulling.\n")
+            log_file.write(
+                f"[INFO]: {datetime.now().strftime('%Y-%m-%d-%H:%M:%S')} - Stashed the files temporary for pulling.\n")
         stashed = True
 
     origin = repo.remotes.origin
@@ -21,7 +22,7 @@ try:
 
     log_message = f"[SUCCESS]: {datetime.now().strftime('%Y-%m-%d-%H:%M:%S')} - Pulled latest changes\n"
     print(log_message)
-   
+
 except Exception as e:
     log_message = f"[ERROR]: {datetime.now().strftime('%Y-%m-%d-%H:%M:%S')} - {str(e)}\n"
     print(log_message)
@@ -35,4 +36,5 @@ finally:
         # Log Message for popping the stash
         with open('/var/log/rushi/git-sync.log', 'a') as log_file:
             print("Popped the stashed changes after pulling.")
-            log_file.write(f"[INFO]: {datetime.now().strftime('%Y-%m-%d-%H:%M:%S')} - Popped the stashed files after pulling.\n")
+            log_file.write(
+                f"[INFO]: {datetime.now().strftime('%Y-%m-%d-%H:%M:%S')} - Popped the stashed files after pulling.\n")
